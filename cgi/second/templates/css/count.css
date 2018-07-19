@@ -1,0 +1,29 @@
+/*body背景色*/
+.bodyy {
+    background-color:#f9f9f9;
+    font-size:12px
+}
+
+/*导航栏背景，字体加粗*/
+.navbar-default{
+    background-color: #8fabdd;
+    font-weight: bold;
+}
+/*导航栏字体颜色*/
+.navbar-default a{
+    color: #ffffff
+}
+
+.echart_div {
+    margin-top: 5%;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.wenzi {
+    margin-top: 5%;
+    text-align: center;
+    font-weight: bold;
+    
+}

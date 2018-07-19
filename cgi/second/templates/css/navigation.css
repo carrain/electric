@@ -1,0 +1,55 @@
+/*body背景色*/
+.bodyy {
+    background-color:#f9f9f9;
+    font-size:12px
+}
+/*导航栏背景，字体加粗*/
+.navbar-default{
+    background-color: #8fabdd;
+    font-weight: bold;
+}
+/*导航栏字体颜色*/
+.navbar-default a{
+    color: #ffffff
+}
+/*中间文字加粗。设边距*/
+.wenzi{
+    margin-top: 30px;
+    margin-left: 10%;
+    margin-bottom: 0px;
+    font-weight: bold;
+    font-size: 20px
+}
+/*表格占屏幕比例*/
+.table-responsive table{
+    width: 80%;
+    margin-bottom: 0px
+}
+/*表头颜色，高度*/
+.table-responsive th {
+    background-color: #f7f9fd;
+    height:50px;
+    text-align:center;
+    vertical-align:top;
+}
+/*双行条纹颜色，高度，对齐方式*/
+.table-striped  tbody  tr:nth-child(2n)  td{
+    background-color: #f7f9fd;
+    text-align:center;
+    vertical-align:bottom;
+    height: 70px;
+    font-size: 1.5em;
+ }
+/*单行条纹颜色，高度，对齐方式*/
+ .table-striped  tbody  tr:nth-child(2n+1)  td{
+    background-color: #ffffff;
+    text-align:center;
+    vertical-align:bottom;
+    height: 70px;
+    font-size: 1.5em;
+ }
+
+ .pagination {
+     margin-top: 0px;
+     margin-left: 70%
+ }

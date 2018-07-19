@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>电力监控系统</title>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/navigation.css">
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body class="bodyy">
+
+<nav class="navbar-default" role="navigation">
+	<div class="container-fluid"> 
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#example-navbar-collapse">
+			<span class="sr-only">切换导航</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+		<a class="navbar-brand" href="#">电力监控系统</a>
+	</div>
+	<div class="collapse navbar-collapse" id="example-navbar-collapse">
+		<ul class="nav navbar-nav">
+            <li><a>    </a></li>
+            <li class="active"><a href="index.html">电力监控</a></li>
+            <li><a>    </a></li>
+            <li><a href="count.html">统计分析</a></li>
+            <li><a>    </a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					用户 <b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+					<li><a href="#">登录</a></li>
+					<li class="divider"></li>
+					<li><a href="#">注销</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	</div>
+</nav>
+
+
+<p class="wenzi">电力实时监控</p><br>
+
+
+<div class="table-responsive" align="center">
+<table class="table table-hover  table-striped">
+  <thead>
+    <tr>
+      <th>序号</th>
+      <th>相数</th>
+      <th>电压有效值(v)</th>
+      <th>电流有效值(A)</th>
+      <th>有功功率(w)</th>
+      <th>无功功率(w)</th>
+      <th>视在功率(w)</th>
+      <th>功率因数</th>
+      <th>测量频率(hz)</th>
+      <th>时间</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+        <td>1</td>
+        <td>A</td>
+        <td>220</td>
+        <td>1.87</td>
+        <td>410</td>
+        <td>41.1</td>
+        <td>411.4</td>
+        <td>0.89</td>
+        <td>50</td>
+        <td>2018-5-24 11:11</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>B</td>
+        <td>220</td>
+        <td>1.99</td>
+        <td>435.8</td>
+        <td>43.7</td>
+        <td>437.8</td>
+        <td>0.86</td>
+        <td>50</td>
+        <td>2018-5-24 11:11</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>C</td>
+        <td>221</td>
+        <td>1.87</td>
+        <td>411.2</td>
+        <td>41.3</td>
+        <td>413.27</td>
+        <td>0.92</td>
+        <td>50</td>
+        <td>2018-5-24 11:11</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>A</td>
+        <td>222</td>
+        <td>1.94</td>
+        <td>428.7</td>
+        <td>43</td>
+        <td>430.68</td>
+        <td>0.92</td>
+        <td>50</td>
+        <td>2018-5-24 11:13</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>B</td>
+        <td>221</td>
+        <td>2.11</td>
+        <td>463.4</td>
+        <td>46.6</td>
+        <td>466.31</td>
+        <td>0.87</td>
+        <td>50</td>
+        <td>2018-5-24 11:13</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>C</td>
+        <td>219</td>
+        <td>1.93</td>
+        <td>420.7</td>
+        <td>42.2</td>
+        <td>422.67</td>
+        <td>0.87</td>
+        <td>50</td>
+        <td>2018-5-24 11:13</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>A</td>
+        <td>221</td>
+        <td>2.02</td>
+        <td>445.2</td>
+        <td>44.6</td>
+        <td>446.42</td>
+        <td>0.88</td>
+        <td>50</td>
+        <td>2018-5-24 11:12</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>B</td>
+        <td>222</td>
+        <td>1.96</td>
+        <td>434.22</td>
+        <td>43.5</td>
+        <td>411.4</td>
+        <td>0.93</td>
+        <td>50</td>
+        <td>2018-5-24 11:12</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>C</td>
+        <td>220</td>
+        <td>2.16</td>
+        <td>473.2</td>
+        <td>47.5</td>
+        <td>475</td>
+        <td>0.90</td>
+        <td>50</td>
+        <td  nowrap>2018-5-24 11:12</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<ul class="pagination" >
+        <li><a href="#">&laquo;</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+        <li><a href="#">5</a></li>
+        <li><a href="#">&raquo;</a></li>
+    </ul>
+
+
+
+</body>
+</html>
