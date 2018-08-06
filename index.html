@@ -9,6 +9,10 @@
 	<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
+
+
+
+
 <body class="bodyy">
 
 <nav class="navbar-default" role="navigation">
@@ -67,115 +71,8 @@
       <th>时间</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-        <td>1</td>
-        <td>A</td>
-        <td>220</td>
-        <td>1.87</td>
-        <td>410</td>
-        <td>41.1</td>
-        <td>411.4</td>
-        <td>0.89</td>
-        <td>50</td>
-        <td>2018-5-24 11:11</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>B</td>
-        <td>220</td>
-        <td>1.99</td>
-        <td>435.8</td>
-        <td>43.7</td>
-        <td>437.8</td>
-        <td>0.86</td>
-        <td>50</td>
-        <td>2018-5-24 11:11</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>C</td>
-        <td>221</td>
-        <td>1.87</td>
-        <td>411.2</td>
-        <td>41.3</td>
-        <td>413.27</td>
-        <td>0.92</td>
-        <td>50</td>
-        <td>2018-5-24 11:11</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>A</td>
-        <td>222</td>
-        <td>1.94</td>
-        <td>428.7</td>
-        <td>43</td>
-        <td>430.68</td>
-        <td>0.92</td>
-        <td>50</td>
-        <td>2018-5-24 11:13</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>B</td>
-        <td>221</td>
-        <td>2.11</td>
-        <td>463.4</td>
-        <td>46.6</td>
-        <td>466.31</td>
-        <td>0.87</td>
-        <td>50</td>
-        <td>2018-5-24 11:13</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>C</td>
-        <td>219</td>
-        <td>1.93</td>
-        <td>420.7</td>
-        <td>42.2</td>
-        <td>422.67</td>
-        <td>0.87</td>
-        <td>50</td>
-        <td>2018-5-24 11:13</td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>A</td>
-        <td>221</td>
-        <td>2.02</td>
-        <td>445.2</td>
-        <td>44.6</td>
-        <td>446.42</td>
-        <td>0.88</td>
-        <td>50</td>
-        <td>2018-5-24 11:12</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>B</td>
-        <td>222</td>
-        <td>1.96</td>
-        <td>434.22</td>
-        <td>43.5</td>
-        <td>411.4</td>
-        <td>0.93</td>
-        <td>50</td>
-        <td>2018-5-24 11:12</td>
-    </tr>
-    <tr>
-        <td></td>
-        <td>C</td>
-        <td>220</td>
-        <td>2.16</td>
-        <td>473.2</td>
-        <td>47.5</td>
-        <td>475</td>
-        <td>0.90</td>
-        <td>50</td>
-        <td  nowrap>2018-5-24 11:12</td>
-    </tr>
+  <tbody id = "mainbody">
+    <td id = "voltage1B">220</td>
   </tbody>
 </table>
 </div>
@@ -188,9 +85,159 @@
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li>
         <li><a href="#">&raquo;</a></li>
-    </ul>
-
-
-
+</ul>
 </body>
+
+<script>
+        var creat = 0;
+        
+        window.onload = main();
+
+        function main(){
+            return_date = request_date("page","1");
+            create_element(return_date);
+            fill_date(return_date);
+        }
+        
+        function request_date(type,detail)
+        {
+            var data = {
+                array:[
+                {
+                'node':[
+                  {
+                    'voltage':'221' , 'electricity':'1.87' , 'effective':'410' ,  'reactive':'41.1' , 'apparent':'411.4' , 'factor':'0.89' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  },
+                  {
+                    'voltage':'220' , 'electricity':'1.99' , 'effective':'435' ,  'reactive':'43.7' , 'apparent':'437.8' , 'factor':'0.86' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  },
+                  {
+                    'voltage':'220' , 'electricity':'1.87' , 'effective':'411' ,  'reactive':'41.3' , 'apparent':'413.27' , 'factor':'0.92' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  }
+                 ]
+                },
+                
+                {
+                'node':[
+                  {
+                    'voltage':'222' , 'electricity':'1.87' , 'effective':'410' ,  'reactive':'41.1' , 'apparent':'411.4' , 'factor':'0.89' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  },
+                  {
+                    'voltage':'220' , 'electricity':'1.99' , 'effective':'435' ,  'reactive':'43.7' , 'apparent':'437.8' , 'factor':'0.86' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  },
+                  {
+                    'voltage':'221' , 'electricity':'1.87' , 'effective':'411' ,  'reactive':'41.3' , 'apparent':'413.27' , 'factor':'0.92' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  }
+                 ]
+                },
+
+                {
+                'node':[
+                  {
+                    'voltage':'223' , 'electricity':'1.87' , 'effective':'410' ,  'reactive':'41.1' , 'apparent':'411.4' , 'factor':'0.89' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  },
+                  {
+                    'voltage':'220' , 'electricity':'1.99' , 'effective':'435' ,  'reactive':'43.7' , 'apparent':'437.8' , 'factor':'0.86' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  },
+                  {
+                    'voltage':'221' , 'electricity':'1.87' , 'effective':'411' ,  'reactive':'41.3' , 'apparent':'413.27' , 'factor':'0.92' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+                  }
+                 ]
+                }
+            ]
+              }
+         /*   
+         $.ajax({
+                type:"post",
+                url:"getdata.py",
+                data:"type="+type+"detail"+detail,
+                success:create_element(1)
+            })
+        */
+        return data
+        }
+        
+        function create_element(return_date)
+        {
+            if(creat == 0)
+            {
+                var creat_tr = '';
+                for (node=1 ; node<4 ; node++){
+                    creat_tr = creat_tr+ "<tr>";
+                    creat_tr = creat_tr+ "<td id = \"id"+node+"\">"+node+"</td>";
+                    creat_tr = creat_tr+"<td>A</td>";
+                    creat_tr = creat_tr+"<td id = \"voltage"+node+"A\">220</td>";
+                    creat_tr = creat_tr+"<td id = \"electricity"+node+"A\">1.87</td>";
+                    creat_tr = creat_tr+"<td id = \"effective"+node+"A\">410</td>";
+                    creat_tr = creat_tr+"<td id = \"reactive"+node+"A\">41.1</td>";
+                    creat_tr = creat_tr+"<td id = \"apparent"+node+"A\">411.4</td>";
+                    creat_tr = creat_tr+"<td id = \"factor"+node+"A\">0.89</td>";
+                    creat_tr = creat_tr+"<td id = \"hz"+node+"A\">50</td>";
+                    creat_tr = creat_tr + "<td id = \"time" + node + "A\">2018-5-24 11:11</td>";
+                    creat_tr = creat_tr + "</tr>";
+        
+                    creat_tr = creat_tr + "<tr>";
+                    creat_tr = creat_tr+ "<td></td>";
+                    creat_tr = creat_tr + "<td>B</td>";
+                    creat_tr = creat_tr + "<td id = \"voltage" + node + "B\">220</td>";
+                    creat_tr = creat_tr + "<td id = \"electricity" + node + "B\">1.87</td>";
+                    creat_tr = creat_tr + "<td id = \"effective" + node + "B\">410</td>";
+                    creat_tr = creat_tr + "<td id = \"reactive" + node + "B\">41.1</td>";
+                    creat_tr = creat_tr + "<td id = \"apparent" + node + "B\">411.4</td>";
+                    creat_tr = creat_tr + "<td id = \"factor" + node + "B\">0.89</td>";
+                    creat_tr = creat_tr + "<td id = \"hz" + node + "B\">50</td>";
+                    creat_tr = creat_tr + "<td id = \"time" + node + "B\">2018-5-24 11:11</td>";
+                    creat_tr = creat_tr+"</tr>";
+        
+                    creat_tr = creat_tr + "<tr>";
+                    creat_tr = creat_tr+ "<td></td>";
+                    creat_tr = creat_tr + "<td>C</td>";
+                    creat_tr = creat_tr + "<td id = \"voltage" + node + "C\">220</td>";
+                    creat_tr = creat_tr + "<td id = \"electricity" + node + "C\">1.87</td>";
+                    creat_tr = creat_tr + "<td id = \"effective" + node + "C\">410</td>";
+                    creat_tr = creat_tr + "<td id = \"reactive" + node + "C\">41.1</td>";
+                    creat_tr = creat_tr + "<td id = \"apparent" + node + "C\">411.4</td>";
+                    creat_tr = creat_tr + "<td id = \"factor" + node + "C\">0.89</td>";
+                    creat_tr = creat_tr + "<td id = \"hz" + node + "C\">50</td>";
+                    creat_tr = creat_tr + "<td id = \"time" + node + "C\">2018-5-24 11:11</td>";
+                    creat_tr = creat_tr + "</tr>";
+                }
+                $("#mainbody").html(creat_tr);
+        //        document.getElementById("mainbody").innerHTML=creat_tr
+                creat = 1
+                return
+            }
+            else if(creat == 1)
+            {
+                return
+            }
+        }
+        
+        function fill_date(return_date)
+        {   
+            // i 根据节点的服务器返回节点的数量，解析并填入数据
+            for(i in return_date.array){
+                //节点编号从1开始，所以需要+1
+                node_number = parseInt(i)
+                node_number = node_number+1
+                // j 每个节点三相 jj将三相转换为字符以便获取id
+                for(j in return_date.array[i].node){
+                    jj = ["A","B","C"]
+                    var argument = ["voltage","electricity","effective","reactive","apparent","factor","hz","time"]
+                    //根据参数数量，填入数据，依次填入一个节点的一个相数的所有数据
+                    for(var argument_number in argument){
+                      $("#"+argument[argument_number]+node_number+jj[j]).html(return_date.array[i].node[j][argument[argument_number]])
+                    }
+                }
+            }
+//            alert(return_date.array.length)
+//            $("voltage"+node+"A").html = return_date.node_number[node].voltage
+        }
+        
+        function send_request(commond)
+        {
+            
+        }
+        </script>
+
 </html>

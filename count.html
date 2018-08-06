@@ -56,6 +56,103 @@
     <!-- ECharts单文件引入 -->
     <script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
     <script type="text/javascript">
+
+
+    //ajax请求数据
+function request_date(page,detail,type)
+{
+/*
+    var data = {
+        array:[
+        {
+        'node':[
+          {
+            'voltage':'221' , 'electricity':'1.87' , 'effective':'410' ,  'reactive':'41.1' , 'apparent':'411.4' , 'factor':'0.89' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          },
+          {
+            'voltage':'220' , 'electricity':'1.99' , 'effective':'435' ,  'reactive':'43.7' , 'apparent':'437.8' , 'factor':'0.86' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          },
+          {
+            'voltage':'220' , 'electricity':'1.87' , 'effective':'411' ,  'reactive':'41.3' , 'apparent':'413.27' , 'factor':'0.92' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          }
+         ]
+        },
+        
+        {
+        'node':[
+          {
+            'voltage':'222' , 'electricity':'1.87' , 'effective':'410' ,  'reactive':'41.1' , 'apparent':'411.4' , 'factor':'0.89' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          },
+          {
+            'voltage':'220' , 'electricity':'1.99' , 'effective':'435' ,  'reactive':'43.7' , 'apparent':'437.8' , 'factor':'0.86' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          },
+          {
+            'voltage':'221' , 'electricity':'1.87' , 'effective':'411' ,  'reactive':'41.3' , 'apparent':'413.27' , 'factor':'0.92' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          }
+         ]
+        },
+
+        {
+        'node':[
+          {
+            'voltage':'223' , 'electricity':'1.87' , 'effective':'410' ,  'reactive':'41.1' , 'apparent':'411.4' , 'factor':'0.89' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          },
+          {
+            'voltage':'220' , 'electricity':'1.99' , 'effective':'435' ,  'reactive':'43.7' , 'apparent':'437.8' , 'factor':'0.86' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          },
+          {
+            'voltage':'221' , 'electricity':'1.87' , 'effective':'411' ,  'reactive':'41.3' , 'apparent':'413.27' , 'factor':'0.92' , 'hz':'50' , 'time':'2018-5-24 11:11' 
+          }
+         ]
+        }
+    ]
+      }
+*/
+//注意如果这里调用了create_element()那么主函数就会调用两次那个函数，
+  //ajax请求，请求成功就调用create_element()函数，开始创建表格
+ /*
+ $.ajax({
+        type:"post",
+        url:"getdata.py",
+        data:"type="+type+"detail"+detail,
+        success:create_element(1)
+    })
+*/
+//temporary distinguish the diffrent type ,delete this code when really receive server data
+    console.log(detail)
+    console.log(type)
+    switch(detail){ 
+        case "last" :
+        if(type == "Axis"){
+            var data = ['2018/4/25','2018/4/26','2018/4/27','2018/4/28','2018/4/29','2018/4/30','2018/5/1','2018/5/2','2018/5/3','2018/5/4','2018/5/5','2018/5/6','2018/5/7','2018/5/8','2018/5/9','2018/5/10','2018/5/11','2018/5/12','2018/5/13','2018/5/14','2018/5/15','2018/5/16','2018/5/17','2018/5/18','2018/5/19','2018/5/20','2018/5/21','2018/5/22','2018/5/23','2018/5/24']
+            }
+            else{
+            var data = [1922, 2011, 2012,2066, 2088, 2014, 2119, 1957, 1890, 1924, 2027, 1934, 2011, 2056, 1988, 1894, 2140, 2133, 1923, 2006, 2092, 2082, 1927, 2086, 2016, 2093, 1985, 1996, 2139, 2044]
+            }
+        break;
+
+        case "each_day" :
+        if(type == "Axis"){
+            var data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,23, 24, 25, 26, 27, 28, 29, 30]
+            }
+            else{
+            var data = [2018, 2035, 2003, 2013, 1953, 1979, 2036, 2062, 2035, 2054, 1989, 1992, 2025, 2013, 2073, 2075, 2048, 2006, 2075, 2059, 1978, 2048, 1973, 2071, 2055, 1954, 2074, 2023, 2067, 2029]
+            }
+        break;
+
+        case "each_month":
+        if(type == "Axis"){
+            var data = ['2017/06','2017/07','2017/08','2017/09','2017/10','2017/11','2017/12','2018/01','2018/02','2018/03','2018/04','2018/05']
+            }
+            else{
+            var data = [60, 58, 58, 59, 61, 61, 60, 59, 59, 62, 62, 59]
+            }
+        break;
+    }
+    console.log(data)
+    return data
+}
+
         // 路径配置
         require.config({
             paths: {
@@ -70,11 +167,16 @@
                 'echarts/chart/line', // 使用柱状图就加载bar模块，按需加载
                 'echarts/chart/bar'
             ],
-            function (ec) {
-                // 基于准备好的dom，初始化echarts图表
-                var voltage_Chart = ec.init(document.getElementById('voltage')); 
 
-                var voltage_option = {
+
+            
+        function (ec) {
+// 基于准备好的dom，初始化echarts图表
+            var voltage_Chart = ec.init(document.getElementById('voltage')); 
+
+
+//设置echart表格参数
+            var voltage_option = {
                     tooltip: {
                         trigger: 'axis',
                     },
@@ -95,9 +197,10 @@
                         {
                             splitLine:{show: false},//去除网格线
                             type : 'category',
-                            data : [
-                            '2018/4/25','2018/4/26','2018/4/27','2018/4/28','2018/4/29','2018/4/30','2018/5/1','2018/5/2','2018/5/3','2018/5/4','2018/5/5','2018/5/6','2018/5/7','2018/5/8','2018/5/9','2018/5/10','2018/5/11','2018/5/12','2018/5/13','2018/5/14','2018/5/15','2018/5/16','2018/5/17','2018/5/18','2018/5/19','2018/5/20','2018/5/21','2018/5/22','2018/5/23','2018/5/24'
-                            ]
+                            data :request_date("chart","last","Axis"),
+//                            data : [
+//                            '2018/4/25','2018/4/26','2018/4/27','2018/4/28','2018/4/29','2018/4/30','2018/5/1','2018/5/2','2018/5/3','2018/5/4','2018/5/5','2018/5/6','2018/5/7','2018/5/8','2018/5/9','2018/5/10','2018/5/11','2018/5/12','2018/5/13','2018/5/14','2018/5/15','2018/5/16','2018/5/17','2018/5/18','2018/5/19','2018/5/20','2018/5/21','2018/5/22','2018/5/23','2018/5/24'
+//                            ]
                         }
                     ],
                     yAxis : [
@@ -115,12 +218,15 @@
                             "name":"功耗(W)",
                             "type":"bar",
                             "smooth":"true",
-                            "data":[1922, 2011, 2012,2066, 2088, 2014, 2119, 1957, 1890, 1924, 2027, 1934, 2011, 2056, 1988, 1894, 2140, 2133, 1923, 2006, 2092, 2082, 1927, 2086, 2016, 2093, 1985, 1996, 2139, 2044]
+                            "data":request_date("chart","last","series"),
+//                            "data":[1922, 2011, 2012,2066, 2088, 2014, 2119, 1957, 1890, 1924, 2027, 1934, 2011, 2056, 1988, 1894, 2140, 2133, 1923, 2006, 2092, 2082, 1927, 2086, 2016, 2093, 1985, 1996, 2139, 2044]
                     },
                     ]
                 };
 
             var myconfig = require('echarts/config')
+            
+            //点击功耗与月总功耗时做出响应
             voltage_Chart.on(myconfig.EVENT.LEGEND_SELECTED,function(param){
             var selected = param.selected;
             if(selected['月总功耗(KW)']){
@@ -138,9 +244,7 @@
                         {
                             splitLine:{show: false},//去除网格线
                             type : 'category',
-                            data : [
-                            '2017/06','2017/07','2017/08','2017/09','2017/10','2017/11','2017/12','2018/01','2018/02','2018/03','2018/04','2018/05'
-                            ]
+                            data : request_date("chart","each_month","Axis"),
                         }
                     ]
                 voltage_option.series = [
@@ -149,7 +253,7 @@
                             "type":"bar",
                             "smooth":"true", 
                             symbol:'none',
-                            "data":[60, 58, 58, 59, 61, 61, 60, 59, 59, 62, 62, 59],
+                            "data":request_date("chart","each_month","series")
                     } 
                 ]
             }
@@ -162,16 +266,14 @@
                             type : 'value',
                             axisLabel : {
                             formatter: '{value} '
-                        }
+                            }
                         },   
                     ]
                 voltage_option.xAxis = [
                         {
                             splitLine:{show: false},//去除网格线
                             type : 'category',
-                            data : [
-                            '2018/4/25','2018/4/26','2018/4/27','2018/4/28','2018/4/29','2018/4/30','2018/5/1','2018/5/2','2018/5/3','2018/5/6','2018/5/7','2018/5/8','2018/5/9','2018/5/10','2018/5/11','2018/5/12','2018/5/13','2018/5/14','2018/5/15','2018/5/16','2018/5/17','2018/5/18','2018/5/19','2018/5/20','2018/5/21','2018/5/22','2018/5/23','2018/5/24'
-                            ]
+                            data :request_date("chart","last","Axis")
                         }
                     ]
                 voltage_option.series = [
@@ -179,7 +281,7 @@
                             "name":"功耗(W)",
                             "type":"bar",
                             symbol:'none',
-                            "data":[1922, 2066, 2088, 2014, 2119, 1957, 1890, 1924, 2027, 1934, 2011, 2056, 1988, 1894, 2140, 2133, 1923, 2006, 2092, 2082, 1927, 2086, 2016, 2093, 1985, 1996, 2139, 2044]
+                            "data":request_date("chart","last","series"),
                 },
                 ]
             }
@@ -187,6 +289,7 @@
             voltage_Chart.setOption(voltage_option,true);
             })
 
+            //点击图标柱状图时做出响应
             voltage_Chart.on(myconfig.EVENT.CLICK,function(param){
                 new_y_Axis = param.name;
                 selected = voltage_option.series[0].name
@@ -194,7 +297,7 @@
                     voltage_option.yAxis = [
                         {
 //                            "name":new_y_Axis+"功耗(W)",
-                            "name":"功耗(W)",
+                            "name":"日功耗(W)",
                             type : 'value',
                             axisLabel : {
                             formatter: '{value} '
@@ -204,8 +307,8 @@
                     voltage_option.xAxis = [
                         {
                             splitLine:{show: false},//去除网格线
-                            "type":"category",
-                            "data":[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,23, 24, 25, 26, 27, 28, 29, 30]
+                            type:"category",
+                            data:request_date("chart","each_day","Axis")
                         }
                     ]
                     voltage_option.series = [
@@ -213,16 +316,20 @@
                             "name":"日功耗(W)",
                             "type":"bar",
                             symbol:'none',
-                            "data":[2018, 2035, 2003, 2013, 1953, 1979, 2036, 2062, 2035, 2054, 1989, 1992, 2025, 2013, 2073, 2075, 2048, 2006, 2075, 2059, 1978, 2048, 1973, 2071, 2055, 1954, 2074, 2023, 2067, 2029]
+                            "data":request_date("chart","each_day","series")
                         }
                     ]
+                    window.setInterval(console.log("1"));
                     voltage_Chart.setOption(voltage_option,true);
+                    
                 }
             }) 
         
-                // 为echarts对象加载数据 
-                window.onresize = voltage_Chart.resize;
-                voltage_Chart.setOption(voltage_option);
+            //当窗口改变时，图标跟随窗口变化
+            window.onresize = voltage_Chart.resize;
+
+            // 为echarts对象加载数据
+            voltage_Chart.setOption(voltage_option);
 
             }
         );
@@ -232,3 +339,4 @@
     </script>
                 
 </html>
+
